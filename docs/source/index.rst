@@ -2,8 +2,8 @@
 GPOD - General Purpose Object Detector
 ======================================
 
-:Source code: `GitHub project <https://github.com/romain-dartigues/python-ihih>`_
-:Bug tracker: `GitHub issues <https://github.com/romain-dartigues/python-ihih/issues>`_
+:Source code: `GitHub project <https://github.com/EvgenyNekrasov/gpod>`_
+:Bug tracker: `GitHub issues <https://github.com/EvgenyNekrasov/gpod/issues>`_
 :License: `BSD 3-Clause <http://opensource.org/licenses/BSD-3-Clause>`_
 :Generated: |today|
 
