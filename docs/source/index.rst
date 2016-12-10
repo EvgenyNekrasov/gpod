@@ -1,15 +1,27 @@
-.. gpod documentation master file, created by
-   sphinx-quickstart on Sat Nov 19 23:52:51 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 GPOD - General Purpose Object Detector
 ======================================
 
+:Source code: `GitHub project <https://github.com/romain-dartigues/python-ihih>`_
+:Bug tracker: `GitHub issues <https://github.com/romain-dartigues/python-ihih/issues>`_
+:License: `BSD 3-Clause <http://opensource.org/licenses/BSD-3-Clause>`_
+:Generated: |today|
+
+.. topic:: Overview
+
 GPOD is Python framework to build object detectors.
 It was developed with a focus on enabling fast experimentation.
 
-Here presented GPOD's :ref:`API`
+Table of contents
+=================
 
+.. toctree::
+   :maxdepth: 2
 
+   api
+
+Indices and tables
+==================
+
+* :ref:`genindex`
 
