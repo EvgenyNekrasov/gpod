@@ -91,7 +91,7 @@ class Detector2D(_Detector):
     
     y : ndarray
     
-    classes_ : list of strings
+    \\classes_ : list of strings
     """
 
     def __init__(self, loader, descriptor, classifier, frame, frame_step=0.25, scale_step=0.75, max_scale_steps=100):
