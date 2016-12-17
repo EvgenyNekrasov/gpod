@@ -10,10 +10,10 @@ import numpy
 
 class Mark2D:
     """
-    Mark2D object is container for object frames on image.
-    Support slicing by string or set of strings to extract frames
-    of some class or classes. Support slicing by float range to
-    extract frames of probabilities in specified interval.
+    Mark2D object is a container for object frames on image.
+    It supports slicing by string or set of strings to extract frames
+    of some class or classes. It supports slicing by float range to
+    extract frames of probabilities in specified range.
 
     Parameters
     ----------
@@ -135,7 +135,7 @@ class Mark2D:
 
         Returns
         -------
-        Mark2D : Mark2D with filterd frames
+        Mark2D : Mark2D with filtered frames
         """
         lof = []
         for c in self:

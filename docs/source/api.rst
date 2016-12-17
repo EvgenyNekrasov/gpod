@@ -2,8 +2,8 @@
 
 .. _api:
 
-APIs
-****
+API Reference
+*************
 
 Detectors
 =========
@@ -12,7 +12,7 @@ Detectors
     :members:
 
 Mark Objects
-===========
+============
 
 .. autoclass:: gpod.Mark2D
     :members:

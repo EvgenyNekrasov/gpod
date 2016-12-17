@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from setuptools import setup
 
 setup(name='gpod',
-      version='0.1.1',
+      version='0.1.2',
       description='general purpose object detector',
       long_description='general purpose object detector',
       url='https://github.com/EvgenyNekrasov/gpod',

@@ -51,19 +51,19 @@ class _Detector(object):
 class Detector2D(_Detector):
     """
     2D object detector.
-    Gaussian pyramid image is used to perform multiscale object detection.
+    Gaussian pyramid image is used to perform multi-scale object detection.
     
     Parameters
     ----------
     loader : function
-        A user defined function to load imgages. It should accept string (path) 
+        A user defined function to load images. It should accept string (path)
         and return ndarray with 2 or 3 dimensions.
     
     descriptor : function
-        A user defined function to preprocess imgage patches before feeding it 
+        A user defined function to preprocess image patches before feeding it
         to a classifier. It should accept ndarray and return ndarray.
     
-    classifier : classifier object
+    classifier : object
         This is assumed to implement the scikit-learn classifier interface.
         Either classifier needs to provide a 'fit' and 'predict_proba' methods.
     
@@ -74,7 +74,7 @@ class Detector2D(_Detector):
         The step of frame moving. If float, frame_step is frame*frame_step.
     
     scale_step : float, default=0.75
-        Downscale step.
+        Downscale step in gaussian pyramid image.
     
     max_scale_steps : int, default=100
         Maximum number of downscale steps.
@@ -85,7 +85,7 @@ class Detector2D(_Detector):
     
     descriptor : function
     
-    classifier : classifier object
+    classifier : object
     
     X : ndarray
     
@@ -217,7 +217,7 @@ class Detector2D(_Detector):
         Parameters
         ----------
         path : string, list of lists of strings or dict of lists of strings
-            If string, a path to folder with folders with images. Othewise,
+            If string, a path to folder with folders with images. Otherwise,
             strings are paths to individual images. If dict, key is a class name.
 
         store_data : bool, default=True
@@ -227,20 +227,25 @@ class Detector2D(_Detector):
             Whether to use augmentation.
         
         augmentation_factor : int, default=1
-            How much samples extract from one image.
+            How much samples extract from one image. Useful only when
+            augmentation is True.
         
         crop : bool, default=False
             Whether to use crop.
+            Useful only when augmentation is True.
         
         horizontal_flip : bool, default=False
             Whether to perform horizontal flip with probability 50%.
+            Useful only when augmentation is True.
         
         vertical_flip : bool, default=False
             Whether to perform vertical flip with probability 50%.
+            Useful only when augmentation is True.
         
         custom_augmentation_func : function, default=None
             A user defined function to modify images. It should accept 
-            ndarray and return ndarray.
+            ndarray and return ndarray. Useful only when augmentation
+            is True.
         
         Returns
         -------
@@ -323,7 +328,7 @@ class Detector2D(_Detector):
         
         Returns
         -------
-        Mark2D : Mark2D object with recognized frames
+        Mark2D : Mark2D object with frames of recognized objects
         """
         self._check_ldc()
         self._check_format_params()
@@ -408,7 +413,7 @@ class Detector2D(_Detector):
 
     def detect_mark(self, target, classes, threshold=0.5, post_processing='NMS', overlap_threshold=0.3, color=0):
         """
-        Detect objects on an image using Detector2D.classifier and mark recognized object images.
+        Detect objects on an image using Detector2D.classifier and paint frames around objects.
 
         Parameters
         ----------
@@ -467,7 +472,7 @@ class Detector2D(_Detector):
         ----------
         targets : list of strings or list of ndarray
             List of images to detect objects. If string in list, path to the image.
-            If ndarray in list, image itself.
+            If ndarray in list, images itself.
 
         classes : string or list of strings or set of strings, default=None
             Which object classes need to detect. If None, all classes would be
@@ -486,7 +491,7 @@ class Detector2D(_Detector):
 
         Returns
         -------
-        list of Mark2D : list of Mark2D object with recognized frames
+        list of Mark2D : list of Mark2D objects with frames of recognized objects
         """
         targets = self._get_targets(targets)
         mos = []
@@ -503,7 +508,7 @@ class Detector2D(_Detector):
         ----------
         targets : list of strings or list of ndarray
             List of images to detect objects. If string in list, path to the image.
-            If ndarray in list, image itself.
+            If ndarray in list, images itself.
 
         classes : string or list of strings or set of strings
             Which object classes need to detect.
@@ -540,13 +545,13 @@ class Detector2D(_Detector):
 
     def batch_detect_mark(self, targets, classes, threshold=0.5, post_processing='NMS', overlap_threshold=0.3, color=0):
         """
-        Detect objects on images using Detector2D.classifier and mark recognized object images.
+        Detect objects on images using Detector2D.classifier and paint frames around objects.
 
         Parameters
         ----------
         targets : list of strings or list of ndarray
             List of images to detect objects. If string in list, path to the image.
-            If ndarray in list, image itself.
+            If ndarray in list, images itself.
 
         classes : string or list of strings or set of strings
             Which object classes need to detect.
