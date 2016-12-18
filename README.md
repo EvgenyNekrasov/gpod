@@ -15,8 +15,9 @@ You can install gpod from PyPI:
 ```sh
 pip install gpod
 ```
-Dependencies: numpy, scipy
-Compatible with: Python 2.7-3.5
+Dependencies: numpy, scipy.
+
+Compatible with: Python 2.7-3.5.
 
 ## Support
 You can post bug reports and feature requests in Github issues.
